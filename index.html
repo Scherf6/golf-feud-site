@@ -144,7 +144,7 @@
 <body>
   <main>
     <h1>The Feud: Ande vs Tom</h1>
-    <div class="trash-talk" id="trashTalk"></div>
+    <div class="trash-talk" id="trashTalk">🔥 **Trash Talk of the Day:** **"Prepare for defeat, Tom!"**</div>
     <table id="scoreTable">
       <thead>
         <tr>
@@ -175,6 +175,70 @@
 
     // Fetch data from the API
     async function fetchScores() {
+      console.log('Starting to fetch scores...');
       try {
-        console.log('Fetching scores from API...');
-        const res = await
+        // Fetch the data from the API
+        const res = await fetch(API_URL);
+        console.log('API fetch response:', res);
+        
+        if (!res.ok) throw new Error('Failed to fetch data');
+        const scores = await res.json();
+        
+        console.log('Fetched scores:', scores); // Log the fetched data
+        updateTable(scores);
+        calculateWinner(scores);
+      } catch (error) {
+        console.error('Error fetching scores:', error);
+        document.querySelector('#winnerDisplay').textContent = 'Failed to load scores. Please try again later.';
+      }
+    }
+
+    // Update the table with fetched scores
+    function updateTable(scores) {
+      console.log('Updating table with scores...');
+      const tableBody = document.querySelector('#scoreTable tbody');
+      tableBody.innerHTML = ''; // Clear the table body before adding new data
+
+      scores.forEach(score => {
+        const winner = score.ande < score.tom ? 'Ande' : 'Tom'; // Identify weekly winner
+
+        // Log individual row data
+        console.log(`Week ${score.week}: Ande ${score.ande}, Tom ${score.tom} - Winner: ${winner}`);
+
+        // Display weekly winner
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${score.week}</td>
+          <td class="${winner === 'Ande' ? 'highlight' : ''}">${score.ande}</td>
+          <td class="${winner === 'Tom' ? 'highlight' : ''}">${score.tom}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Calculate the winner based on scores
+    function calculateWinner(scores) {
+      let andeTotal = 0, tomTotal = 0;
+
+      scores.forEach(score => {
+        andeTotal += parseInt(score.ande, 10);
+        tomTotal += parseInt(score.tom, 10);
+      });
+
+      console.log('Total Scores - Ande:', andeTotal, 'Tom:', tomTotal); // Log the total scores
+
+      const winnerDisplay = document.querySelector('#winnerDisplay');
+      if (andeTotal < tomTotal) {
+        winnerDisplay.textContent = `🔥 Ande is leading with ${andeTotal} points!`;
+      } else if (tomTotal < andeTotal) {
+        winnerDisplay.textContent = `🎯 Tom is leading with ${tomTotal} points!`;
+      } else {
+        winnerDisplay.textContent = 'It\'s a tie!';
+      }
+    }
+
+    // Call the fetch function when the page loads
+    window.onload = fetchScores;
+  </script>
+</body>
+</html>
