@@ -159,5 +159,40 @@
       </div>
     </div>
   </main>
+  ...
+    <!-- Your content (tables, bios, etc.) -->
+
+    <script>
+      const API_URL = 'https://script.google.com/macros/s/AKfycbw6KhovfKp_JKbe9mR6YtCEDqe_qFAGXPve0_91oHbKOEpKFZFmXNoCDTEwHTjI3u2I/exec';
+
+      // Fetch data from the API
+      async function fetchScores() {
+        const res = await fetch(API_URL);
+        const scores = await res.json();
+        updateTable(scores);
+      }
+
+      // Update the table with fetched scores
+      function updateTable(scores) {
+        const tableBody = document.querySelector('#scoreTable tbody');
+        tableBody.innerHTML = ''; // Clear the table body before adding new data
+
+        scores.forEach(score => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${score.week}</td>
+            <td>${score.ande}</td>
+            <td>${score.tom}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Call the fetch function when the page loads
+      window.onload = fetchScores;
+    </script>
+</body>
+</html>
+
 </body>
 </html>
