@@ -49,4 +49,132 @@
       animation: slideIn 1s ease-out;
     }
 
-    @keyframes slideI
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+      color: #222;
+      animation: fadeIn 1s ease-out;
+    }
+
+    th {
+      background-color: #2e7d32;
+      color: white;
+      padding: 12px;
+      font-size: 1.1em;
+    }
+
+    td {
+      padding: 12px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f4f4f4;
+    }
+
+    tr:hover {
+      background-color: #dcedc8;
+    }
+
+    .winner {
+      margin-top: 20px;
+      font-size: 1.3em;
+      text-align: center;
+      background: #ffffffc9;
+      color: #2e7d32;
+      padding: 14px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .highlight {
+      background-color: #c8e6c9 !important;
+      color: #1b5e20;
+    }
+
+    .about {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.9);
+      padding: 20px;
+      border-radius: 12px;
+      color: #222;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .about h2 {
+      font-family: 'Bebas Neue', cursive;
+      text-align: center;
+      color: #33691e;
+      font-size: 2em;
+    }
+
+    .rival {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .rival strong {
+      font-size: 1.2em;
+      color: #1b5e20;
+    }
+
+    @media only screen and (max-width: 768px) {
+      main {
+        padding: 20px;
+      }
+      table {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>The Feud: Ande vs Tom</h1>
+    <div class="trash-talk" id="trashTalk"></div>
+    <table id="scoreTable">
+      <thead>
+        <tr>
+          <th scope="col">Week</th>
+          <th scope="col">🔥 Ande “The Fairway Fiend”</th>
+          <th scope="col">🎯 Tom “The Tee Terminator”</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="winner" id="winnerDisplay"></div>
+
+    <section class="about">
+      <h2>👊 Meet the Rivals</h2>
+      <div class="rival">
+        <div>🔥 Ande “The Fairway Fiend”</div><br>
+        <div>Known for precision iron play and psychological warfare. Claims he once hit 3 greens in regulation... on a par 3 course. Fueled by protein shakes and petty vengeance.</div>
+      </div>
+      <div class="rival">
+        <div>🎯 Tom “The Tee Terminator”</div><br>
+        <div>Drives like a beast, but with a 3 wood. Once holed a 60-footer just to avoid a tie. May or may not own more polos than golf balls.</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const API_URL = 'https://script.google.com/macros/s/AKfycbw6KhovfKp_JKbe9mR6YtCEDqe_qFAGXPve0_91oHbKOEpKFZFmXNoCDTEwHTjI3u2I/exec';
+
+    // Fetch data from the API
+    async function fetchScores() {
+      try {
+        console.log('Fetching scores from API...');
+        const res = await
