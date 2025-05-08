@@ -140,13 +140,30 @@ tr:hover {
       font-size: 2em;
     }
 
-   .rival {
+.rival {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: center; /* Center-align content vertically */
+  gap: 20px; /* Space between items */
   margin-top: 20px;
-  transition: transform 0.3s ease;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.85); /* Add a subtle background */
+  border-radius: 8px; /* Round corners */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
+
+.rival > div {
+  flex: 1; /* Ensure equal width for both items */
+}
+
+.rival strong {
+  font-size: 1.2em; /* Make the rival names stand out */
+  color: #1b5e20;
+}
+
+.rival:first-child {
+  margin-top: 0; /* Remove top margin for the first rival */
+}
+
 
     .rival strong {
       font-size: 1.2em;
