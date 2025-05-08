@@ -151,24 +151,29 @@ tr:hover {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
+.rival {
+  display: flex;
+  align-items: center; /* Center-align content vertically */
+  gap: 20px; /* Space between rival items */
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.85); /* Subtle background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
+}
+
 .rival > div {
-  flex: 1; /* Ensure equal width for both items */
+  flex: 1; /* Ensure equal width for rival name and description */
 }
 
 .rival strong {
-  font-size: 1.2em; /* Make the rival names stand out */
+  font-size: 1.2em; /* Highlight rival names */
   color: #1b5e20;
 }
 
 .rival:first-child {
   margin-top: 0; /* Remove top margin for the first rival */
 }
-
-
-    .rival strong {
-      font-size: 1.2em;
-      color: #1b5e20;
-    }
 
     @media only screen and (max-width: 768px) {
       main {
