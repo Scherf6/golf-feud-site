@@ -273,12 +273,12 @@ tr:hover {
 
       const winnerDisplay = document.querySelector('#winnerDisplay');
       if (andeTotal < tomTotal) {
-        winnerDisplay.textContent = `🔥 Ande is leading with ${andeTotal} points!`;
-      } else if (tomTotal < andeTotal) {
-        winnerDisplay.textContent = `🎯 Tom is leading with ${tomTotal} points!`;
-      } else {
-        winnerDisplay.textContent = 'It\'s a tie!';
-      }
+  winnerDisplay.textContent = `🔥 Ande is winning by ${diff} stroke${diff === 1 ? '' : 's'}!`;
+} else if (tomTotal < andeTotal) {
+  winnerDisplay.textContent = `🎯 Tom is winning by ${diff} stroke${diff === 1 ? '' : 's'}!`;
+} else {
+  winnerDisplay.textContent = 'It\'s a tie!';
+}
     }
 
     // Call the fetch function when the page loads
