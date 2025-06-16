@@ -11,19 +11,18 @@
       font-family: 'Open Sans', sans-serif;
       margin: 0;
       padding: 0;
-      background: url('https://images.unsplash.com/photo-1562204320-31975a5e09ce?q=80&w=1694&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed; /* Replaced with golf ball background */
+      background: url('https://images.unsplash.com/photo-1562204320-31975a5e09ce?q=80&w=1694&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
     }
 
     main {
       max-width: 960px;
-      margin: 0 auto;
+      margin: 0 auto 40px auto;
       padding: 40px 20px;
       background-color: rgba(0, 0, 0, 0.65);
       border-radius: 12px;
       box-shadow: 0 0 30px rgba(0,0,0,0.6);
-      margin-bottom: 40px;
     }
 
     h1 {
@@ -40,52 +39,30 @@
       to { opacity: 1; }
     }
 
-   .trash-talk {
-  text-align: center;
-  font-size: 1.4em; /* Slightly larger for emphasis */
-  font-weight: bold;
-  color: #ffcb00;
-  margin-bottom: 20px;
-  animation: slideIn 1s ease-out;
-}
+    .trash-talk {
+      text-align: center;
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #ffcb00;
+      margin-bottom: 20px;
+      animation: slideIn 1s ease-out;
+    }
 
     @keyframes slideIn {
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-  color: #222;
-  animation: fadeIn 1s ease-out;
-}
-
-th {
-  background-color: #2e7d32;
-  color: white;
-  padding: 12px;
-  font-size: 1.1em;
-}
-
-td {
-  padding: 12px;
-  text-align: center;
-  font-weight: 600;
-}
-
-tr:nth-child(even) {
-  background-color: #f4f4f4;
-}
-
-tr:hover {
-  background-color: #dcedc8;
-}
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+      color: #222;
+      animation: fadeIn 1s ease-out;
+    }
 
     th {
       background-color: #2e7d32;
@@ -135,154 +112,4 @@ tr:hover {
 
     .about h2 {
       font-family: 'Bebas Neue', cursive;
-      text-align: center;
-      color: #33691e;
-      font-size: 2em;
-    }
-
-.rival {
-  display: flex;
-  align-items: center; /* Center-align content vertically */
-  gap: 20px; /* Space between items */
-  margin-top: 20px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.85); /* Add a subtle background */
-  border-radius: 8px; /* Round corners */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-.rival {
-  display: flex;
-  align-items: center; /* Center-align content vertically */
-  gap: 20px; /* Space between rival items */
-  margin-top: 20px;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.85); /* Subtle background */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
-}
-
-.rival > div {
-  flex: 1; /* Ensure equal width for rival name and description */
-}
-
-.rival strong {
-  font-size: 1.2em; /* Highlight rival names */
-  color: #1b5e20;
-}
-
-.rival:first-child {
-  margin-top: 0; /* Remove top margin for the first rival */
-}
-
-    @media only screen and (max-width: 768px) {
-      main {
-        padding: 20px;
-      }
-      table {
-        font-size: 0.9em;
-      }
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>The Feud: Ande vs Tom</h1>
-    <div class="trash-talk" id="trashTalk">🔥 <strong>Weekly Trash Talk</strong>:🔥</strong>:"Tom, I beat you again. At this point, it’s starting to feel more like community service than competition."</strong></div>
-    <table id="scoreTable">
-      <thead>
-        <tr>
-          <th scope="col">Week</th>
-          <th scope="col">🔥 Ande “The Fairway Fiend”</th>
-          <th scope="col">🎯 Tom “The Tee Terminator”</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <div class="winner" id="winnerDisplay"></div>
-
-  <section class="about">
-  <h2>👊 Meet the Rivals</h2>
-  <div class="rival">
-    <div>🔥 Ande “The Fairway Fiend”</div>
-    <div>While he tends to go Out of Bounds a lot, Ande grinds down to save bogeys and doubles to win the match. Known for grinding his way through any challenge.</div>
-  </div>
-  <div class="rival">
-    <div>🎯 Tom “The Tee Terminator”</div>
-    <div>Drives like a beast, but with a 3 wood. Once holed a 60-footer just to avoid a tie. May or may not own more polos than golf balls.</div>
-  </div>
-</section>
-  </main>
-
-  <script>
-    const API_URL = 'https://script.google.com/macros/s/AKfycbw6KhovfKp_JKbe9mR6YtCEDqe_qFAGXPve0_91oHbKOEpKFZFmXNoCDTEwHTjI3u2I/exec';
-
-    // Fetch data from the API
-    async function fetchScores() {
-      console.log('Starting to fetch scores...');
-      try {
-        // Fetch the data from the API
-        const res = await fetch(API_URL);
-        console.log('API fetch response:', res);
-        
-        if (!res.ok) throw new Error('Failed to fetch data');
-        const scores = await res.json();
-        
-        console.log('Fetched scores:', scores); // Log the fetched data
-        updateTable(scores);
-        calculateWinner(scores);
-      } catch (error) {
-        console.error('Error fetching scores:', error);
-        document.querySelector('#winnerDisplay').textContent = 'Failed to load scores. Please try again later.';
-      }
-    }
-
-    // Update the table with fetched scores
-    function updateTable(scores) {
-      console.log('Updating table with scores...');
-      const tableBody = document.querySelector('#scoreTable tbody');
-      tableBody.innerHTML = ''; // Clear the table body before adding new data
-
-      scores.forEach(score => {
-        const winner = score.ande < score.tom ? 'Ande' : 'Tom'; // Identify weekly winner
-
-        // Log individual row data
-        console.log(`Week ${score.week}: Ande ${score.ande}, Tom ${score.tom} - Winner: ${winner}`);
-
-        // Display weekly winner
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${score.week}</td>
-          <td class="${winner === 'Ande' ? 'highlight' : ''}">${score.ande}</td>
-          <td class="${winner === 'Tom' ? 'highlight' : ''}">${score.tom}</td>
-        `;
-        tableBody.appendChild(row);
-      });
-    }
-
-    // Calculate the winner based on scores
-    function calculateWinner(scores) {
-      let andeTotal = 0, tomTotal = 0;
-
-      scores.forEach(score => {
-        andeTotal += parseInt(score.ande, 10);
-        tomTotal += parseInt(score.tom, 10);
-      });
-
-      console.log('Total Scores - Ande:', andeTotal, 'Tom:', tomTotal); // Log the total scores
-
-      const winnerDisplay = document.querySelector('#winnerDisplay');
-      if (andeTotal < tomTotal) {
-  winnerDisplay.textContent = `🔥 Ande is winning by ${diff} stroke${diff === 1 ? '' : 's'}!`;
-} else if (tomTotal < andeTotal) {
-  winnerDisplay.textContent = `🎯 Tom is winning by ${diff} stroke${diff === 1 ? '' : 's'}!`;
-} else {
-  winnerDisplay.textContent = 'It\'s a tie!';
-}
-    }
-
-    // Call the fetch function when the page loads
-    window.onload = fetchScores;
-  </script>
-</body>
-</html>
+      text-
